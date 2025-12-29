@@ -46,7 +46,7 @@
 						<li>Problemstellung</li>
 						<li>Methodik</li>
 						<li>Ergebnisse</li>
-						<li>Zusammenfassung & Zukunftsaussicht</li>
+						<li>Fazit</li>
 					</ol>
 				</section>
 
@@ -59,23 +59,24 @@
 							<hr data-id="h-line"/>
 							<h3>Einschränkungen von Klassischem AnEn</h3>
 						</div>
+
 						<div class="card-layout">
-							<div class="card">
+							<div class="card fragment fade-in-then-semi-out">
 								<h4>Lineare Ähnlichkeit</h4>
 								<small>
-									Die Ähnlichkeit basiert auf einer starren, linearen Kombination von Prädiktorgewichten.
+									Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Variablen.
 									Komplexe, nicht-lineare Zusammenhänge werden nicht berücksichtigt.
 								</small>
 							</div>
 
-							<div class="card">
+							<div class="card fragment fade-in-then-semi-out">
 								<h4>Curse of Dimensionality</h4>
 								<small>
-									Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Prädiktoren.
+									Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Variablen.
 								</small>
 							</div>
 
-							<div class="card">
+							<div class="card fragment fade-in-then-semi-out">
 								<h4>Independent Search</h4>
 								<small>
 									Für jeden Standort ein eigenes unabhängig optimiertes Modell, mit eigenem Archiv.
@@ -83,7 +84,7 @@
 								</small>
 							</div>
 
-							<div class="card">
+							<div class="card fragment fade-in-then-semi-out">
 								<h4>Begrenzter zeitlicher Kontext</h4>
 								<small>
 									Das typische Zeitfenster von $t \pm 1$ ignoriert längerfristige dynamische Entwicklungen.
@@ -103,6 +104,34 @@
 
 						</div>
 					</section>
+
+					<section data-auto-animate data-visibility="hidden">
+						<div class="header">
+							<h2>1. Problemstellung</h2>
+							<hr data-id="h-line"/>
+							<h3>Deep Analog (Hu et al. 2023)</h3>
+						</div>
+
+						<div class="r-hstack">
+							<ul>
+								<li>Triplet (Siamese) Network</li>
+								<ul>
+									<li>Drei identische Encoder (mit identischen gewichten)</li>
+									<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
+									<li>Training eines Embeddingraumes</li>
+								</ul>
+								<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
+								<ul class="fragment" data-fragment-index="1">
+									<li>Prognosen sind ähnlich wenn deren Beobachtungen ähnlich sind</li>
+									<li>Impliziete Definition von Ähnlichkeit</li>
+									<li>Keine klare Definition von Negativ Beispielen</li>
+								</ul>
+							</ul>
+
+							<img class="fragment" data-fragment-index="1" height="250px" src="ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
+						</div>
+
+					</section>
 				</section>
 
 				<section>
@@ -120,11 +149,11 @@
 							<div>
 								<p style="font-weight: bold;">AnEn (Harte Auswahl)</p>
 								<div>
-									<img height="200px" src="Bildschirmfoto vom 2025-12-25 00-52-58.png" alt="AnEn Selection">
+									<img height="200px" src="AnEn_Auswahl.png" alt="AnEn Selection">
 								</div>
 								<ul>
-									<li>Sucht die top-k besten Analoga.</li>
-									<li>Gleichgewichtete Ensemble Mitglieder.</li>
+									<li>Nutzt die top-k besten Analoga.</li>
+									<li>Gewichtet alle gleich.</li>
 									<li>Ignoriert alle anderen.</li>
 									<li>Ist nicht differenzierbar.</li>
 								</ul>
@@ -142,11 +171,11 @@
 							<div>
 								<p style="font-weight: bold;">AnEn (Harte Auswahl)</p>
 								<div>
-									<img height="200px" src="Bildschirmfoto vom 2025-12-25 00-52-58.png" alt="AnEn Selection">
+									<img height="200px" src="AnEn_Auswahl.png" alt="AnEn Selection">
 								</div>
 								<ul>
-									<li>Sucht die top-k besten Analoga.</li>
-									<li>Gleichgewichtete Ensemble Mitglieder.</li>
+									<li>Nutzt die top-k besten Analoga.</li>
+									<li>Gewichtet alle gleich.</li>
 									<li>Ignoriert alle anderen.</li>
 									<li>Ist nicht differenzierbar.</li>
 								</ul>
@@ -155,7 +184,7 @@
 							<div>
 								<p style="font-weight: bold;">A2E (Weiche Auswahl)</p>
 								<div>
-									<img height="200px" src="Bildschirmfoto vom 2025-12-25 00-53-17.png" alt="A2E Selection">
+									<img height="200px" src="A2E_Auswahl.png" alt="A2E Selection">
 								</div>
 								<ul>
 									<li>Nutzt das gesamte Archiv als Analoga.</li>
@@ -187,10 +216,10 @@
 				</section>
 
 				<section>
-					<section data-auto-animate><h2>4. Zusammenfassung & Zukunftsaussicht</h2></section>
+					<section data-auto-animate><h2>4. Fazit</h2></section>
 
 					<section data-auto-animate>
-						<h2 class="header">4. Zusammenfassung & Zukunftsaussicht</h2>
+						<h2 class="header">4. Fazit</h2>
 						<p>Lorem Ipsum</p>
 					</section>
 				</section>
@@ -240,14 +269,14 @@
 				// Transition style ('slide', 'fade', 'convex', 'concave', 'zoom')
 				transition: 'fade',
 				
-				// Transition speed
-				transitionSpeed: 'fast',
+				// Transition speed ('default', 'fast', 'slow')
+				transitionSpeed: 'default',
 				
 				// Transition style for full page slide backgrounds
 				backgroundTransition: 'fade',
 
 				// Auto animate settings
-				autoAnimateDuration: 0.5,
+				autoAnimateDuration: 0.75,
 				autoAnimateEasing: 'ease',
 
 				// Display presentation control arrows
