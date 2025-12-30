@@ -41,42 +41,74 @@
 				</section>
 
 				<section>
-					<h2>Outline</h2>
+					<h2>Agenda</h2>
 					<ol>
-						<li>Problemstellung</li>
-						<li>Methodik</li>
+						<li>Klassisches Analog Ensemble (AnEn)</li>
+						<li>Attentive Analog Ensemble (A2E)</li>
 						<li>Ergebnisse</li>
 						<li>Fazit</li>
 					</ol>
 				</section>
 
 				<section>
-					<section data-auto-animate><h2>1. Problemstellung</h2></section>
+					<section data-auto-animate><h2>1. Klassisches Analog Ensemble (AnEn)</h2></section>
 
 					<section data-auto-animate>
 						<div class="header">
-							<h2>1. Problemstellung</h2>
+							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+							<hr data-id="h-line"/>
+							<h3>Funktionsweise</h3>
+						</div>
+
+						<div class="r-hstack">
+							<div class="r-stack">
+								<img src="AnEn_Architecture.png" alt="AnEn Architecture">
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate data-visibility="uncounted">
+						<div class="header">
+							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+							<hr data-id="h-line"/>
+							<h3>Funktionsweise</h3>
+						</div>
+
+						<div class="r-hstack">
+							<div class="r-stack">
+								<img src="AnEn_Architecture.png" alt="AnEn Architecture">
+							</div>
+							<div class="r-vstack">
+								$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="header">
+							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
 							<hr data-id="h-line"/>
 							<h3>Einschränkungen von Klassischem AnEn</h3>
 						</div>
 
 						<div class="card-layout">
-							<div class="card fragment fade-in-then-semi-out">
+							<div class="card fragment">
 								<h4>Lineare Ähnlichkeit</h4>
 								<small>
-									Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Variablen.
+									Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Features.
 									Komplexe, nicht-lineare Zusammenhänge werden nicht berücksichtigt.
 								</small>
 							</div>
 
-							<div class="card fragment fade-in-then-semi-out">
+							<div class="card fragment">
 								<h4>Curse of Dimensionality</h4>
 								<small>
-									Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Variablen.
+									Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Features .
 								</small>
+								<span style="font-size: 0.6em">$\mathcal{O}(s^F)$</span>
 							</div>
 
-							<div class="card fragment fade-in-then-semi-out">
+							<div class="card fragment">
 								<h4>Independent Search</h4>
 								<small>
 									Für jeden Standort ein eigenes unabhängig optimiertes Modell, mit eigenem Archiv.
@@ -84,30 +116,43 @@
 								</small>
 							</div>
 
-							<div class="card fragment fade-in-then-semi-out">
+							<div class="card fragment">
 								<h4>Begrenzter zeitlicher Kontext</h4>
 								<small>
 									Das typische Zeitfenster von $t \pm 1$ ignoriert längerfristige dynamische Entwicklungen.
 								</small>
 							</div>
 
-							<div class="card fragment">
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="header">
+							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+							<hr data-id="h-line"/>
+							<h3>Einschränkungen von Klassischem AnEn</h3>
+						</div>
+
+						<div class="r-hstack">
+							<div class="r-stack">
+								<img src="AnEn_Architecture_Error.png" alt="AnEn Architecture no gradients">
+							</div>
+							<div class="card">
 								<h4>Nicht-Differenzierbarkeit</h4>
 								<small>
 									Der Kern des AnEn – die Auswahl der besten Analoga – ist nicht differenzierbar.
-									<strong class="text-red">Verhindert</strong> 
-									somit 
+									<strong class="text-red">Verhindert</strong>
+									somit
 									<strong class="text-red">Backpropagation</strong>
 									und folglich die direkte Integration moderner Deep-Learning-Architekturen.
 								</small>
 							</div>
-
 						</div>
 					</section>
 
 					<section data-auto-animate data-visibility="hidden">
 						<div class="header">
-							<h2>1. Problemstellung</h2>
+							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
 							<hr data-id="h-line"/>
 							<h3>Deep Analog (Hu et al. 2023)</h3>
 						</div>
@@ -136,12 +181,12 @@
 
 				<section>
 					<section data-auto-animate>
-						<h2>2. Methodik</h2>
+						<h2>2. Attentive Analog Ensemble (A2E)</h2>
 					</section>
 
 					<section data-auto-animate>
 						<div class="header">
-							<h2>2. Methodik</h2>
+							<h2>2. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
 							<h3>AnEn vs. A2E Auswahl</h3>
 						</div>
@@ -163,7 +208,7 @@
 
 					<section data-auto-animate data-visibility="uncounted">
 						<div class="header">
-							<h2>2. Methodik</h2>
+							<h2>2. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
 							<h3>AnEn vs. A2E Auswahl</h3>
 						</div>
@@ -197,7 +242,7 @@
 					
 					<section data-auto-animate>
 						<div class="header">
-							<h2>2. Methodik</h2>
+							<h2>2. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
 							<h3>A2E Architektur</h3>
 						</div>
