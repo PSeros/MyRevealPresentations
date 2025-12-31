@@ -35,11 +35,13 @@
 
 			<!-- Slides -->
 			<div class="slides">
+				<!-- Titel seite -->
 				<section>
 					<h1>Attentive Analog Ensemble (A2E)</h1>
 					<sub>End-To-End Learning of Analog Similarity by Optimizing Probabilistic Scoring Rules via Differentiable Retrieval</sub>
 				</section>
 
+				<!-- Agenda -->
 				<section>
 					<h2>Agenda</h2>
 					<ol>
@@ -50,6 +52,7 @@
 					</ol>
 				</section>
 
+				<!-- 1. Klassisches Analog Ensemble (AnEn) -->
 				<section>
 					<section data-auto-animate><h2>1. Klassisches Analog Ensemble (AnEn)</h2></section>
 
@@ -62,7 +65,7 @@
 
 						<div class="r-hstack">
 							<div class="r-stack">
-								<img src="AnEn_Architecture.png" alt="AnEn Architecture">
+								<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
 							</div>
 						</div>
 					</section>
@@ -76,7 +79,7 @@
 
 						<div class="r-hstack">
 							<div class="r-stack">
-								<img src="AnEn_Architecture.png" alt="AnEn Architecture">
+								<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
 							</div>
 							<div class="r-vstack">
 								$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$
@@ -135,7 +138,7 @@
 
 						<div class="r-hstack">
 							<div class="r-stack">
-								<img src="AnEn_Architecture_Error.png" alt="AnEn Architecture no gradients">
+								<img src="images/AnEn_Architecture_Error.png" alt="AnEn Architecture no gradients">
 							</div>
 							<div class="card">
 								<h4>Nicht-Differenzierbarkeit</h4>
@@ -173,12 +176,13 @@
 								</ul>
 							</ul>
 
-							<img class="fragment" data-fragment-index="1" height="250px" src="ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
+							<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
 						</div>
 
 					</section>
 				</section>
 
+				<!-- 2. Attentive Analog Ensemble (A2E) -->
 				<section>
 					<section data-auto-animate>
 						<h2>2. Attentive Analog Ensemble (A2E)</h2>
@@ -188,54 +192,49 @@
 						<div class="header">
 							<h2>2. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
-							<h3>AnEn vs. A2E Auswahl</h3>
 						</div>
 						<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
 							<div>
-								<p style="font-weight: bold;">AnEn (Harte Auswahl)</p>
+								<p style="font-weight: bold;">AnEn</p>
 								<div>
-									<img height="200px" src="AnEn_Auswahl.png" alt="AnEn Selection">
+									<img width="500" src="images/AnEn_Architecture.png" alt="AnEn">
 								</div>
-								<ul>
-									<li>Nutzt die top-k besten Analoga.</li>
-									<li>Gewichtet alle gleich.</li>
-									<li>Ignoriert alle anderen.</li>
-									<li>Ist nicht differenzierbar.</li>
-								</ul>
+							</div>
+
+							<div>
+								<p style="font-weight: bold;">Attention</p>
+								<div>
+									<img width="250" src="images/Attention.png" alt="Attention Mechanismus">
+								</div>
 							</div>
 						</div>
 					</section>
 
-					<section data-auto-animate data-visibility="uncounted">
+					<section data-auto-animate>
 						<div class="header">
 							<h2>2. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
-							<h3>AnEn vs. A2E Auswahl</h3>
 						</div>
 						<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
 							<div>
-								<p style="font-weight: bold;">AnEn (Harte Auswahl)</p>
+								<p style="font-weight: bold;">AnEn</p>
 								<div>
-									<img height="200px" src="AnEn_Auswahl.png" alt="AnEn Selection">
+									<img width="500" src="images/AnEn_Architecture.png" alt="AnEn">
 								</div>
-								<ul>
-									<li>Nutzt die top-k besten Analoga.</li>
-									<li>Gewichtet alle gleich.</li>
-									<li>Ignoriert alle anderen.</li>
-									<li>Ist nicht differenzierbar.</li>
-								</ul>
 							</div>
 
 							<div>
-								<p style="font-weight: bold;">A2E (Weiche Auswahl)</p>
-								<div>
-									<img height="200px" src="A2E_Auswahl.png" alt="A2E Selection">
+								<p style="font-weight: bold;">Attention</p>
+								<div style="">
+									<img width="250" src="images/Attention.png" alt="Attention Mechanismus">
 								</div>
-								<ul>
-									<li>Nutzt das gesamte Archiv als Analoga.</li>
-									<li>Gewichtet alle abhängig ihrer Ähnlichkeit.</li>
-									<li>Ist differenzierbar.</li>
-								</ul>
+							</div>
+
+							<div>
+								<p style="font-weight: bold;">A2E</p>
+								<div>
+									<img width="500" src="images/A2E_training_topk.png" alt="A2E">
+								</div>
 							</div>
 						</div>
 					</section>
@@ -249,6 +248,7 @@
 					</section>
 				</section>
 
+				<!-- 3. Ergebnisse -->
 				<section>
 					<section data-auto-animate>
 						<h2>3. Ergebnisse</h2>
@@ -260,6 +260,7 @@
 					</section>
 				</section>
 
+				<!-- 4. Fazit -->
 				<section>
 					<section data-auto-animate><h2>4. Fazit</h2></section>
 
