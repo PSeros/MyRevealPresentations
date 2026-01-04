@@ -7,6 +7,8 @@
 
 		<title>Master Kolloquium</title>
 
+		<link rel="stylesheet" href="custom-animation.css">
+
 		<link rel="stylesheet" href="../../dist/reset.css">
 		<link rel="stylesheet" href="../../dist/reveal.css">
 		<link rel="stylesheet" href="../../dist/theme/custom.css">
@@ -233,17 +235,26 @@
 							<div>
 								<p style="font-weight: bold;">A2E</p>
 								<div>
-									<img width="500" src="images/A2E_training_topk.png" alt="A2E">
+									<img width="500" src="images/A2E_training_topk.png" alt="A2E" data-id="A2E-Architecture">
 								</div>
 							</div>
 						</div>
 					</section>
-					
+
 					<section data-auto-animate>
 						<div class="header">
 							<h2>2. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
-							<h3>A2E Architektur</h3>
+						</div>
+						<div class="r-hstack">
+							<div class="r-stack" style="overflow: hidden; height: 600px; width: 100%;">
+								<img width="500" src="images/A2E_training_topk.png" alt="A2E-Architecture" data-id="A2E-Architecture" id="A2E-Architecture">
+								<img width="500" src="images/A2E_training_topk.png" alt="A2E-Architecture" id="A2E-Architecture-Zoom">
+
+								<span class="fragment" data-fragment-index="0"></span>
+								<span class="fragment" data-fragment-index="1"></span>
+								<span class="fragment" data-fragment-index="2"></span>
+							</div>
 						</div>
 					</section>
 				</section>
