@@ -10,15 +10,10 @@ section:has(.current-fragment) #A2E-Architecture {
 
 section:has(.current-fragment[data-fragment-index="0"]) #A2E-Architecture-Zoom {
     visibility: visible;
-    transform: scale(1.6) translate(0%, 17.5%);
+    transform: scale(1.75) translate(-5%, 17.2%);
 }
 
 section:has(.current-fragment[data-fragment-index="1"]) #A2E-Architecture-Zoom {
     visibility: visible;
-    transform: scale(2) translate(0%, -30%);
-}
-
-section:has(.current-fragment[data-fragment-index="2"]) #A2E-Architecture-Zoom {
-    visibility: visible;
-    transform: scale(2.5) translate(0%, 0%);
+    transform: scale(2.4) translate(15%, -35%);
 }
