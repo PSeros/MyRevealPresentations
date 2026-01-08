@@ -1,0 +1,25 @@
+.reveal .footer {
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+  font-size: 18px;
+  color: var(--r-footer-color);
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.reveal .footer .left {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.reveal .footer .center {
+  text-align: center;
+}
+
+.reveal .footer .right {
+  text-align: right;
+  padding-right: 20px;
+}

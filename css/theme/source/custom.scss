@@ -1,0 +1,52 @@
+// Default mixins and settings -----------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #00194c;
+$headingColor: #00194c;
+$footerColor: rgb(104, 104, 104);
+$primaryColor: #00194c;
+$secondaryColor: orange;
+$accentColor: #4384ff;
+
+
+$mainFontSize: 35px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: color.scale( $linkColor, $lightness: 15% );
+$selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );
+
+$heading1Size: 2em;
+$heading2Size: 1.6em;
+$heading3Size: 1.2em;
+$heading4Size: 0.8em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Components ----------------------------------
+@import "../components";
+// ---------------------------------------------
