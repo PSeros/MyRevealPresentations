@@ -48,5 +48,9 @@ $overlayElementFgColor: 240, 240, 240;
 // ---------------------------------------------
 
 // Components ----------------------------------
-@import "../components";
+@import "../components/index";
 // ---------------------------------------------
+
+.reveal ul ::marker {
+  color: var(--r-secondary-color);
+}
