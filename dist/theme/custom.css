@@ -1,15 +1,10 @@
-/**
- * Custom theme for reveal.js.
- *
- * By Phillip Schlicht
- */
 @import url(./fonts/source-sans-pro/source-sans-pro.css);
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #fff;
 }
 
 /*********************************************
- * GLOBAL STYLE VARIABLES
+ * GLOBAL STYLES
  *********************************************/
 :root {
   --r-background-color: #fff;
@@ -18,6 +13,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-main-color: #00194c;
   --r-primary-color: #00194c;
   --r-secondary-color: orange;
+  --r-accent-color: #4384ff;
   --r-footer-color: rgb(104, 104, 104);
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
@@ -43,142 +39,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-overlay-element-fg-color: 240, 240, 240;
 }
 
-/*********************************************
- * MY CUSTOM CSS
- *********************************************/
-
-.reveal .slides section {
-  padding-top: 50px;
-}
-
-li {
-  margin-left: 1em;
-}
-
-/* .reveal .slides li {
-  margin-left: 15px;
-} */
-
-/* Color highlights */
- .text-red {
-  color: red;
-}
-
-.text-blue {
-  color: blue;
-}
-
-.text-green {
-  color: green;
-}
-
-.text-primary {
-  color: var(--r-primary-color);
-}
-
-.text-secondary {
-  color: var(--r-secondary-color);
-}
-
-
-/* Footer */
-.reveal .footer {
-  position: fixed;
-  bottom: 30px;
-  width: 100%;
-  font-size: 18px;
-  color: var(--r-footer-color);
-  z-index: 20;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-}
-
-.reveal .footer .left {
-  text-align: left;
-  padding-left: 20px;
-}
-
-.reveal .footer .center {
-  text-align: center;
-}
-
-.reveal .footer .right {
-  text-align: right;
-  padding-right: 20px;
-}
-
-/* Header */
-.reveal .header {
-  width: 100%;
-  text-align: center;
-}
-
-.reveal .header h2 {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  font-size: 0.7em;
-  font-weight: normal;
-  color: var(--r-main-color);
-  z-index: 100;
-}
-
-/* .reveal .header h3 {
-  font-weight: bold;
-  color: var(--r-main-color);
-  margin-bottom: 0.5em !important;
-} */
-
-/* .reveal .header h3 {
-  font-weight: bold;
-  color: var(--r-main-color);
-  margin-bottom: 0.5em !important;
-} */
-
-.reveal .header h3 {
-  position: fixed;
-  top: 35px;
-  width: 100%;
-  z-index: 100;
-}
-
-.reveal .header hr {
-  position: fixed;
-  top: 15px;
-  width: 100%;
-  height: 0.2%;
-  background-color: var(--r-secondary-color);
-  border: none;
-  z-index: 100;
-}
-
-/* Cards */
-.reveal .card-layout {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.reveal .card {
-  border-radius: 16px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;  
-  padding: 10px;
-  width: 500px;
-  box-sizing: border-box; /* Includes padding in width */
-}
-
-/*********************************************
- * KaTeX ADJUSTMENTS
- *********************************************/
-.reveal small .katex {
-  font-size: 22px;
-}
-
-/*********************************************
- * GLOBAL STYLES
- *********************************************/
 .reveal-viewport {
   background: #fff;
   background-color: var(--r-background-color);
@@ -205,6 +65,7 @@ li {
 
 .reveal .slides section,
 .reveal .slides section > section {
+  padding-top: 50px;
   line-height: 1.3;
   font-weight: inherit;
 }
@@ -294,10 +155,6 @@ li {
 
 .reveal ol {
   list-style-type: decimal;
-}
-
-.reveal ul ::marker {
-  color: var(--r-secondary-color);
 }
 
 .reveal ul {
@@ -499,4 +356,112 @@ li {
   .backgrounds {
     background-color: var(--r-background-color);
   }
+}
+/*********************************************
+ * KaTeX ADJUSTMENTS
+ *********************************************/
+.reveal small .katex {
+  font-size: 22px;
+}
+
+/* Cards */
+.reveal .card-layout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.reveal .card {
+  border-radius: 16px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 10px;
+  width: 500px;
+  box-sizing: border-box; /* Includes padding in width */
+}
+
+.reveal .footer {
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+  font-size: 18px;
+  color: var(--r-footer-color);
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.reveal .footer .left {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.reveal .footer .center {
+  text-align: center;
+}
+
+.reveal .footer .right {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.reveal .header {
+  width: 100%;
+  text-align: center;
+}
+
+.reveal .header h2 {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  font-size: 0.7em;
+  font-weight: normal;
+  color: var(--r-main-color);
+  z-index: 100;
+}
+
+.reveal .header h3 {
+  position: fixed;
+  top: 35px;
+  width: 100%;
+  z-index: 100;
+}
+
+.reveal .header hr {
+  position: fixed;
+  top: 15px;
+  width: 100%;
+  height: 0.2%;
+  background-color: var(--r-secondary-color);
+  border: none;
+  z-index: 100;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-primary {
+  color: var(--r-primary-color);
+}
+
+.text-secondary {
+  color: var(--r-secondary-color);
+}
+
+.text-accent {
+  color: var(--r-accent-color);
+}
+
+.reveal ul ::marker {
+  color: var(--r-secondary-color);
 }
