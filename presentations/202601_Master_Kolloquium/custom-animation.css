@@ -15,5 +15,5 @@ section:has(.current-fragment[data-fragment-index="0"]) #A2E-Architecture-Zoom {
 
 section:has(.current-fragment[data-fragment-index="1"]) #A2E-Architecture-Zoom {
     visibility: visible;
-    transform: scale(2.4) translate(15%, -35%);
+    transform: scale(2.2) translate(15%, -35%);
 }
