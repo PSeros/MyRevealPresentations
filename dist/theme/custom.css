@@ -51,6 +51,14 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   padding-top: 50px;
 }
 
+li {
+  margin-left: 1em;
+}
+
+/* .reveal .slides li {
+  margin-left: 15px;
+} */
+
 /* Color highlights */
  .text-red {
   color: red;
@@ -116,10 +124,23 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   z-index: 100;
 }
 
-.reveal .header h3 {
+/* .reveal .header h3 {
   font-weight: bold;
   color: var(--r-main-color);
   margin-bottom: 0.5em !important;
+} */
+
+/* .reveal .header h3 {
+  font-weight: bold;
+  color: var(--r-main-color);
+  margin-bottom: 0.5em !important;
+} */
+
+.reveal .header h3 {
+  position: fixed;
+  top: 35px;
+  width: 100%;
+  z-index: 100;
 }
 
 .reveal .header hr {
