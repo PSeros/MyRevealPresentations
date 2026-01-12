@@ -51,6 +51,14 @@ $overlayElementFgColor: 240, 240, 240;
 @import "../components/index";
 // ---------------------------------------------
 
-.reveal ul ::marker {
+.reveal :is(ul, ol) > :is(ul, ol) {
+  margin-left: 1em;
+}
+
+.reveal li {
+  margin-left: 1em;
+}
+
+.reveal ul > li::marker {
   color: var(--r-secondary-color);
 }
