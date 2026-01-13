@@ -60,15 +60,15 @@
 
 					<section data-auto-animate>
 						<div class="header">
-							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
-							<hr data-id="h-line"/>
-							<h3>Funktionsweise</h3>
+								<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+								<hr data-id="h-line"/>
+								<h3>Funktionsweise</h3>
 						</div>
 
 						<div class="r-hstack">
-							<div class="r-stack">
-								<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
-							</div>
+									<div class="r-stack">
+										<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
+									</div>
 						</div>
 					</section>
 
@@ -80,53 +80,53 @@
 						</div>
 
 						<div class="r-hstack">
-							<div class="r-stack">
-								<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
-							</div>
-							<div class="r-vstack">
-								$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$
-							</div>
+								<div class="r-stack">
+									<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
+								</div>
+								<div class="r-vstack">
+									$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$
+								</div>
 						</div>
 					</section>
 
 					<section data-auto-animate>
 						<div class="header">
-							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
-							<hr data-id="h-line"/>
-							<h3>Einschränkungen von Klassischem AnEn</h3>
+								<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+								<hr data-id="h-line"/>
+								<h3>Einschränkungen von Klassischem AnEn</h3>
 						</div>
-
+						
 						<div class="card-layout">
-							<div class="card fragment">
-								<h4>Lineare Ähnlichkeit</h4>
-								<small>
-									Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Features.
-									Komplexe, nicht-lineare Zusammenhänge werden nicht berücksichtigt.
-								</small>
-							</div>
+									<div class="card fragment">
+										<h4>Lineare Ähnlichkeit</h4>
+										<small>
+											Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Features.
+											Komplexe, nicht-lineare Zusammenhänge werden nicht berücksichtigt.
+										</small>
+									</div>
 
-							<div class="card fragment">
-								<h4>Curse of Dimensionality</h4>
-								<small>
-									Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Features .
-								</small>
-								<span style="font-size: 0.6em">$\mathcal{O}(s^F)$</span>
-							</div>
+									<div class="card fragment">
+										<h4>Curse of Dimensionality</h4>
+										<small>
+											Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Features .
+										</small>
+										<span style="font-size: 0.6em">$\mathcal{O}(s^F)$</span>
+									</div>
 
-							<div class="card fragment">
-								<h4>Independent Search</h4>
-								<small>
-									Für jeden Standort ein eigenes unabhängig optimiertes Modell, mit eigenem Archiv.
-									Ignoriert räumliche informationen.
-								</small>
-							</div>
+									<div class="card fragment">
+										<h4>Independent Search</h4>
+										<small>
+											Für jeden Standort ein eigenes unabhängig optimiertes Modell, mit eigenem Archiv.
+											Ignoriert räumliche informationen.
+										</small>
+									</div>
 
-							<div class="card fragment">
-								<h4>Begrenzter zeitlicher Kontext</h4>
-								<small>
-									Das typische Zeitfenster von $t \pm 1$ ignoriert längerfristige dynamische Entwicklungen.
-								</small>
-							</div>
+									<div class="card fragment">
+										<h4>Begrenzter zeitlicher Kontext</h4>
+										<small>
+											Das typische Zeitfenster von $t \pm 1$ ignoriert längerfristige dynamische Entwicklungen.
+										</small>
+									</div>
 
 						</div>
 					</section>
@@ -156,30 +156,30 @@
 					</section>
 
 					<section data-auto-animate data-visibility="hidden">
-						<div class="header">
-							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
-							<hr data-id="h-line"/>
-							<h3>Deep Analog (Hu et al. 2023)</h3>
-						</div>
+							<div class="header">
+								<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+								<hr data-id="h-line"/>
+								<h3>Deep Analog (Hu et al. 2023)</h3>
+							</div>
 
-						<div class="r-hstack">
-							<ul>
-								<li>Triplet (Siamese) Network</li>
+							<div class="r-hstack">
 								<ul>
-									<li>Drei identische Encoder (mit identischen gewichten)</li>
-									<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
-									<li>Training eines Embeddingraumes</li>
+									<li>Triplet (Siamese) Network</li>
+									<ul>
+										<li>Drei identische Encoder (mit identischen gewichten)</li>
+										<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
+										<li>Training eines Embeddingraumes</li>
+									</ul>
+									<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
+									<ul class="fragment" data-fragment-index="1">
+										<li>Prognosen sind ähnlich wenn deren Beobachtungen ähnlich sind</li>
+										<li>Impliziete Definition von Ähnlichkeit</li>
+										<li>Keine klare Definition von Negativ Beispielen</li>
+									</ul>
 								</ul>
-								<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
-								<ul class="fragment" data-fragment-index="1">
-									<li>Prognosen sind ähnlich wenn deren Beobachtungen ähnlich sind</li>
-									<li>Impliziete Definition von Ähnlichkeit</li>
-									<li>Keine klare Definition von Negativ Beispielen</li>
-								</ul>
-							</ul>
 
-							<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
-						</div>
+								<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
+							</div>
 
 					</section>
 				</section>
@@ -368,6 +368,7 @@
 				customSlideNumberFormat: 'c/t', // 'h.v', 'h/v', 'c', oder 'c/t'
 				customSlideNumberSelector: '.custom-slide-number', // optional, Standard ist '.custom-slide-number'
 			});
+			Reveal.configure({ pdfSeparateFragments: false });
 		</script>
 	</body>
 </html>
