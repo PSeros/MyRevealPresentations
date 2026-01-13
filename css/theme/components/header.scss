@@ -1,31 +1,21 @@
 .reveal .header {
+  align-self: flex-start;
   width: 100%;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .reveal .header h2 {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  font-size: 0.7em;
+  font-size: 0.75em;
   font-weight: normal;
   color: var(--r-main-color);
-  z-index: 100;
-}
-
-.reveal .header h3 {
-  position: fixed;
-  top: 35px;
-  width: 100%;
-  z-index: 100;
+  margin: 0;
 }
 
 .reveal .header hr {
-  position: fixed;
-  top: 15px;
   width: 100%;
-  height: 0.2%;
+  margin: 0.1em;
+  height: 2px;
   background-color: var(--r-secondary-color);
   border: none;
-  z-index: 100;
 }
