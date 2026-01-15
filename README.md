@@ -6,4 +6,4 @@
 </p>
 This is the repository for my presentations created with reveal.js.
 
-They presentations are accessible under <a href="https://pseros.github.io/MyRevealPresentations/">MyRevealPresentations<a/> and can be viewed directly in the browser.
+They are accessible under <a href="https://pseros.github.io/MyRevealPresentations/">MyRevealPresentations<a/> and can be viewed directly in the browser.
