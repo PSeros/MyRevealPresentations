@@ -48,6 +48,7 @@
 					<h2>Agenda</h2>
 					<ol>
 						<li>Klassisches Analog Ensemble (AnEn)</li>
+						<li>Grundlegende Konzepte</li>
 						<li>Attentive Analog Ensemble (A2E)</li>
 						<li>Ergebnisse</li>
 						<li>Fazit</li>
@@ -84,7 +85,8 @@
 									<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
 								</div>
 								<div class="r-vstack">
-									$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$
+									<h4>Analog Distance by Delle Monache et al. (2013)</h4>
+									<p>$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$</p>
 								</div>
 						</div>
 					</section>
@@ -154,45 +156,112 @@
 							</div>
 						</div>
 					</section>
-
-					<section data-auto-animate data-visibility="hidden">
-							<div class="header">
-								<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
-								<hr data-id="h-line"/>
-								<h3>Deep Analog (Hu et al. 2023)</h3>
-							</div>
-
-							<div class="r-hstack">
-								<ul>
-									<li>Triplet (Siamese) Network</li>
-									<ul>
-										<li>Drei identische Encoder (mit identischen gewichten)</li>
-										<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
-										<li>Training eines Embeddingraumes</li>
-									</ul>
-									<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
-									<ul class="fragment" data-fragment-index="1">
-										<li>Prognosen sind ähnlich wenn deren Beobachtungen ähnlich sind</li>
-										<li>Impliziete Definition von Ähnlichkeit</li>
-										<li>Keine klare Definition von Negativ Beispielen</li>
-									</ul>
-								</ul>
-
-								<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
-							</div>
-
-					</section>
 				</section>
 
-				<!-- 2. Attentive Analog Ensemble (A2E) -->
+				<!-- 2. Grundlegende Konzepte -->
 				<section>
 					<section data-auto-animate>
-						<h2>2. Attentive Analog Ensemble (A2E)</h2>
+						<h2>2. Grundlegende Konzepte</h2>
 					</section>
 
 					<section data-auto-animate>
 						<div class="header">
-							<h2>2. Attentive Analog Ensemble (A2E)</h2>
+							<h2>2. Grundlegende Konzepte</h2>
+							<hr data-id="h-line">
+							<h3>Sequence Models</h3>
+						</div>
+
+						<div>
+							Lorem Ipsum
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="header">
+							<h2>2. Grundlegende Konzepte</h2>
+							<hr data-id="h-line">
+							<h3>Siamese Networks</h3>
+						</div>
+
+						<div>
+							Lorem Ipsum
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="header">
+							<h2>2. Grundlegende Konzepte</h2>
+							<hr data-id="h-line">
+							<h3>Information Retrieval</h3>
+						</div>
+
+						<div>
+							Lorem Ipsum
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="header">
+							<h2>2. Grundlegende Konzepte</h2>
+							<hr data-id="h-line">
+							<h3>Proper Scoring Rules</h3>
+						</div>
+
+						<div class="r-hstack justify-around items-start">
+							<div>
+								<h4>CRPS</h4>
+								<ul>
+									<li>Lorem</li>
+									<li>Ipsum</li>
+								</ul>
+							</div>
+							<div>
+								<h4>SCRPS</h4>
+								<ul>
+									<li>Lorem</li>
+									<li>Ipsum</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate data-visibility="hidden">
+						<div class="header">
+							<h2>Grundlegende Konzepte</h2>
+							<hr data-id="h-line"/>
+							<h3>Deep Analog (Hu et al. 2023)</h3>
+						</div>
+
+						<div class="r-hstack">
+							<ul>
+								<li>Triplet (Siamese) Network</li>
+								<ul>
+									<li>Drei identische Encoder (mit identischen gewichten)</li>
+									<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
+									<li>Training eines Embeddingraumes</li>
+								</ul>
+								<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
+								<ul class="fragment" data-fragment-index="1">
+									<li>Prognosen sind ähnlich, wenn deren Beobachtungen ähnlich sind</li>
+									<li>Implizite Definition von Ähnlichkeit</li>
+									<li>Keine klare Definition von Negativ Beispielen</li>
+								</ul>
+							</ul>
+
+							<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
+						</div>
+					</section>
+				</section>
+
+				<!-- 3. Attentive Analog Ensemble (A2E) -->
+				<section>
+					<section data-auto-animate>
+						<h2>3. Attentive Analog Ensemble (A2E)</h2>
+					</section>
+
+					<section data-auto-animate>
+						<div class="header">
+							<h2>3. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
 						</div>
 						<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
@@ -212,9 +281,9 @@
 						</div>
 					</section>
 
-					<section data-auto-animate>
+					<section data-auto-animate data-visibility="uncounted">
 						<div class="header">
-							<h2>2. Attentive Analog Ensemble (A2E)</h2>
+							<h2>3. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
 						</div>
 						<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
@@ -243,18 +312,24 @@
 
 					<section data-auto-animate>
 						<div class="header">
-							<h2>2. Attentive Analog Ensemble (A2E)</h2>
+							<h2>3. Attentive Analog Ensemble (A2E)</h2>
 							<hr data-id="h-line">
+							<h3>A2E-Architektur</h3>
 						</div>
 						<div class="r-hstack">
 							<div class="r-stack" style="width: 40%;">
+								<ul class="fragment fade-out" data-fragment-index="0">
+									<li>Lorem</li>
+									<li>Ipsum</li>
+								</ul>
 								<ul class="fragment fade-in-then-out" data-fragment-index="0">
-									<li>Gewichte ($W_k$) propagieren die Gradienten.</li>
+									<li>Attention as Soft Retrieval</li>
 									<li>Cosine Similarity für direktionale ähnlichkeit (Richtung im Latenten-Raum).</li>
+									<li>Gewichte ($W_k$) propagieren die Gradienten.</li>
+									<li>Ensemble Generation and Training Objective</li>
 								</ul>
 								<ul class="fragment" data-fragment-index="1">
-									<li>A</li>
-									<li>B</li>
+									<li>Capturing Context with Embedding Networks</li>
 								</ul>
 							</div>
 							<div class="r-stack" style="border-radius: 20px; justify-self: flex-end; overflow: hidden; height: 600px; width: 60%;">
@@ -263,26 +338,103 @@
 							</div>
 						</div>
 					</section>
-				</section>
 
-				<!-- 3. Ergebnisse -->
-				<section>
 					<section data-auto-animate>
-						<h2>3. Ergebnisse</h2>
+						<div class="header">
+							<h2>3. Attentive Analog Ensemble (A2E)</h2>
+							<hr data-id="h-line">
+							<h3>Embedding Network</h3>
+						</div>
+						<div class="r-hstack">
+							<div class="r-stack" style="width: 40%;">
+								<ul class="fragment fade-out" data-fragment-index="0">
+									<li>WaveNet-Adaption</li>
+								</ul>
+								<ul class="fragment fade-in-then-out" data-fragment-index="0">
+									<li>WaveNet-Blocks</li>
+									<li>Residual-Connections</li>
+									<li>Skip-Connections</li>
+								</ul>
+								<ul class="fragment" data-fragment-index="1">
+									<li>Summierung aller Skip-Connections </li>
+									<li>Letzte Transformationen</li>
+								</ul>
+							</div>
+							<div class="r-stack" style="border-radius: 20px; justify-self: flex-end; overflow: hidden; height: 600px; width: 60%;">
+								<img src="images/A2E_Encoder.PNG" alt="A2E-Encoder" id="A2E-Encoder">
+							</div>
+						</div>
 					</section>
 
 					<section data-auto-animate>
-						<h2 class="header">3. Ergebnisse</h2>
+						<div class="header">
+							<h2>3. Attentive Analog Ensemble (A2E)</h2>
+							<hr data-id="h-line">
+							<h3>Dilated Convolution</h3>
+						</div>
+						<div class="r-hstack justify-around">
+							<div>
+								<ul>
+									<li>Lorem</li>
+									<li>Ipsum</li>
+									<li>Dolor</li>
+									<li>Sit</li>
+									<li>Amet</li>
+								</ul>
+							</div>
+							<div>
+								<img width="700" src="images/A2E_DilatedConvolution.png" alt="A2E-DilatedConvolution" id="A2E-DilatedConvolution">
+							</div>
+						</div>
+					</section>
+
+					<section id="wind-slide" data-auto-animate>
+						<div class="header">
+							<h2>3. Attentive Analog Ensemble (A2E)</h2>
+							<hr data-id="h-line">
+							<h3>Windgeschwindigkeiten über Deutschland</h3>
+						</div>
+						<div class="r-hstack justify-around">
+							<div>
+								<ul>
+									<li>Lorem</li>
+									<li>Ipsum</li>
+								</ul>
+							</div>
+
+							<div class="r-hstack" style="height: 700px; width: 400px; margin-top: -30px">
+								<div class="r-vstack">
+									<div id="my-wind-info" class="text-xs"></div>
+									<div id="wind-visualization" style="margin-top: -30px;"></div>
+								</div>
+								<div class="my-custom-controls r-vstack">
+									<button id="my-play-btn"><i class="fas fa-play-circle"></i></button>
+									<button id="my-pause-btn"><i class="fas fa-pause-circle"></i></button>
+									<button id="my-reset-btn"><i class="fas fa-backward-fast"></i></button>
+								</div>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<!-- 4. Ergebnisse -->
+				<section>
+					<section data-auto-animate>
+						<h2>4. Ergebnisse</h2>
+					</section>
+
+					<section data-auto-animate>
+						<h2 class="header">4. Ergebnisse</h2>
 						<p>Lorem Ipsum</p>
 					</section>
 				</section>
 
-				<!-- 4. Fazit -->
+				<!-- 5. Fazit -->
 				<section>
-					<section data-auto-animate><h2>4. Fazit</h2></section>
+					<section data-auto-animate><h2>5. Fazit</h2></section>
 
 					<section data-auto-animate>
-						<h2 class="header">4. Fazit</h2>
+						<h2 class="header">5. Fazit</h2>
 						<p>Lorem Ipsum</p>
 					</section>
 				</section>
@@ -292,6 +444,9 @@
 		<!-- My Scripts -->
 		<script src="../../plugin/my_plugin/date.js"></script>
 		<script src="../../plugin/my_plugin/customslidenumber.js"></script>
+
+		<!-- Wind Visualization -->
+		<script src="js/wind-visualization.js"></script>
 
 		<!-- Reveal.js and plugins -->
 		<script src="../../dist/reveal.js"></script>
@@ -368,7 +523,58 @@
 				customSlideNumberFormat: 'c/t', // 'h.v', 'h/v', 'c', oder 'c/t'
 				customSlideNumberSelector: '.custom-slide-number', // optional, Standard ist '.custom-slide-number'
 			});
-			Reveal.configure({ pdfSeparateFragments: false });
+
+			// Wind Visualization Setup
+			let windViz = null;
+
+			Reveal.on('slidechanged', event => {
+				// Check for id:"wind-slide"
+				if (event.currentSlide.id === 'wind-slide') {
+					// Initialisiere Visualisierung nur beim ersten Besuch
+					if (!windViz) {
+						windViz = new WindVisualization('wind-visualization', {
+							width: 450,
+							height: 650,
+							dataPath: './data/wind/',
+							startDate: '2024-05-01',
+							endDate: '2024-06-01',
+							maxWindSpeed: 8,
+							frameDelay: 200,
+							highlightIndices: [0],  // Optional: bestimmte Locations highlighten
+							arrowScale: 40,
+							arrowWidth: 2,
+
+							playButtonId: 'my-play-btn',
+                    		pauseButtonId: 'my-pause-btn',
+                    		resetButtonId: 'my-reset-btn',
+                   	 		infoElementId: 'my-wind-info',
+						});
+
+						windViz.init().then(success => {
+							if (success) {
+								console.log('Wind visualization loaded successfully');
+							}
+						});
+					}
+				} else {
+					// Pausiere Animation wenn wir die Slide verlassen
+					if (windViz && windViz.isPlaying) {
+						windViz.pause();
+					}
+				}
+			});
+
+			// Optional: Auto-play wenn Slide aktiv wird
+			Reveal.on('slidechanged', event => {
+				if (event.currentSlide.id === 'wind-slide' && windViz && !windViz.isPlaying) {
+					// Warte kurz, dann starte Animation automatisch
+					setTimeout(() => {
+						if (Reveal.getCurrentSlide().id === 'wind-slide') {
+							windViz.play();
+						}
+					}, 500);
+				}
+			});
 		</script>
 	</body>
 </html>

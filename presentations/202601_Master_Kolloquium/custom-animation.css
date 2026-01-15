@@ -1,3 +1,4 @@
+/* A2E-Architecture */
 #A2E-Architecture-Zoom {
     visibility: hidden;
     transition: all 0.75s ease-in-out;
@@ -15,5 +16,36 @@ section:has(.current-fragment[data-fragment-index="0"]) #A2E-Architecture-Zoom {
 
 section:has(.current-fragment[data-fragment-index="1"]) #A2E-Architecture-Zoom {
     visibility: visible;
-    transform: scale(2.2) translate(15%, -35%);
+    transform: scale(2.2) translate(15%, -30%);
+}
+
+/* Embedding Network */
+#A2E-Encoder {
+    transition: all 0.75s ease-in-out;
+    transform: scale(1) translate(0, 0);
+}
+
+section:has(.current-fragment[data-fragment-index="0"]) #A2E-Encoder {
+    transform: scale(1.5) translate(20%, 0%);
+}
+
+section:has(.current-fragment[data-fragment-index="1"]) #A2E-Encoder {
+    transform: scale(1.5) translate(-20%, 10%);
+}
+
+/* Wind-Visualization */
+.my-custom-controls button{
+}
+
+.my-custom-controls button {
+    background: none;
+    border: none;
+    font-size: 40px;
+    color: orange;
+}
+
+.my-custom-controls button:hover {
+    transition: all 0.1s ease-in-out;
+    transform: scale(1.1);
+    color: darkorange;
 }
