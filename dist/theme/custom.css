@@ -9,7 +9,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 :root {
   --r-background-color: #fff;
   --r-main-font: Source Sans Pro, Helvetica, sans-serif;
-  --r-main-font-size: 35px;
+  --r-main-font-size: 30px;
   --r-main-color: #00194c;
   --r-primary-color: #00194c;
   --r-secondary-color: orange;
@@ -26,9 +26,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-heading-font-weight: 600;
   --r-heading1-text-shadow: none;
   --r-heading1-size: 2em;
-  --r-heading2-size: 1.6em;
-  --r-heading3-size: 1.2em;
-  --r-heading4-size: 0.8em;
+  --r-heading2-size: 1.66em;
+  --r-heading3-size: 1.33em;
+  --r-heading4-size: 1em;
   --r-code-font: monospace;
   --r-link-color: #2a76dd;
   --r-link-color-dark: rgb(30.7720647773, 99.5566801619, 192.7779352227);
@@ -421,7 +421,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 }
 
 .reveal .header h2 {
-  font-size: 0.75em;
+  font-size: 0.875em;
   font-weight: normal;
   color: var(--r-main-color);
   margin: 0;

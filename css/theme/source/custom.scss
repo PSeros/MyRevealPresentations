@@ -20,7 +20,7 @@ $secondaryColor: orange;
 $accentColor: #DAE3F3;
 
 
-$mainFontSize: 35px;
+$mainFontSize: 30px;
 $mainFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingFont: 'Source Sans Pro', Helvetica, sans-serif;
 $headingTextShadow: none;
@@ -32,9 +32,9 @@ $linkColorHover: color.scale( $linkColor, $lightness: 15% );
 $selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );
 
 $heading1Size: 2em;
-$heading2Size: 1.6em;
-$heading3Size: 1.2em;
-$heading4Size: 0.8em;
+$heading2Size: 1.66em;
+$heading3Size: 1.33em;
+$heading4Size: 1em;
 
 $overlayElementBgColor: 0, 0, 0;
 $overlayElementFgColor: 240, 240, 240;
