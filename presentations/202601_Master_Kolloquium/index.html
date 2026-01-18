@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<meta name="author" content="Phillip Schlicht">
 
-		<title>Master Kolloquium</title>
+		<title>Attentive Analog Ensemble (A2E)</title>
 
 		<link rel="stylesheet" href="custom-animation.css">
 
@@ -21,19 +21,6 @@
 	
 		<!-- Presentation -->
 		<div class="reveal">
-
-			<!-- Footer bar -->
-			<div class="footer">
-				<div class="left">
-					<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
-				</div>
-				<div class="center">
-					<span data-date="de"></span>
-				</div>
-				<div class="right">
-					<span class="custom-slide-number"></span>
-				</div>
-			</div>
 
 			<!-- Slides -->
 			<div class="slides" id="Slides">
@@ -60,99 +47,169 @@
 					<section data-auto-animate><h2>1. Klassisches Analog Ensemble (AnEn)</h2></section>
 
 					<section data-auto-animate>
-						<div class="header">
+						<div class="slide-body">
+							<div class="header">
 							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
 							<hr data-id="h-line"/>
 							<h3>Funktionsweise</h3>
 						</div>
 
-						<div class="r-hstack">
-							<div class="r-stack">
-								<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
+							<div class="content">
+								<div>
+									<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate data-visibility="uncounted">
-						<div class="header">
-							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
-							<hr data-id="h-line"/>
-							<h3>Funktionsweise</h3>
-						</div>
+						<div class="slide-body">
+							<div class="header">
+								<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+								<hr data-id="h-line"/>
+								<h3>Funktionsweise</h3>
+							</div>
 
-						<div class="r-hstack">
-							<div class="r-stack">
-								<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
+							<div class="content">
+								<div class="r-hstack">
+									<img src="images/AnEn_Architecture.png" alt="AnEn Architecture">
+									<div class="r-vstack">
+										<h4>Analog Distance<span data-cite="junk_predictor-weighting_2015"></span></h4>
+										<p>$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$</p>
+									</div>
+								</div>
 							</div>
-							<div class="r-vstack">
-								<h4>Analog Distance<span data-cite="junk_predictor-weighting_2015"></span></h4>
-								<p>$\|X_{t}, X_{h}\| = \sum_{i=1}^{F} \frac{W_i}{\sigma_{i}} \sqrt{\sum_{j=-\tilde{t}}^{\tilde{t}} \left( X_{i,t+j} - X_{i, h+j} \right)^2}$</p>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="citation-bar"><h4>Quellen:</h4></div>
 					</section>
 
 					<section data-auto-animate>
-						<div class="header">
+						<div class="slide-body">
+							<div class="header">
+									<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
+									<hr data-id="h-line"/>
+									<h3>Einschränkungen von Klassischem AnEn</h3>
+							</div>
+
+							<div class="content">
+								<div class="card-layout">
+									<div class="card fragment">
+										<h4>Lineare Ähnlichkeit</h4>
+										<p class="text-xs">
+											Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Features.
+											Komplexe, nicht-lineare Zusammenhänge werden nicht berücksichtigt.
+										</p>
+									</div>
+
+									<div class="card fragment">
+										<h4>Curse of Dimensionality</h4>
+										<p class="text-xs">
+											Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Features .
+											$\mathcal{O}(s^F)$
+										</p>
+									</div>
+
+									<div class="card fragment">
+										<h4>Independent Search</h4>
+										<p class="text-xs">
+											Für jeden Standort ein eigenes unabhängig optimiertes Modell, mit eigenem Archiv.
+											Ignoriert räumliche informationen.
+										</p>
+									</div>
+
+									<div class="card fragment">
+										<h4>Begrenzter zeitlicher Kontext</h4>
+										<p class="text-xs">
+											Das typische Zeitfenster von $t \pm 1$ ignoriert längerfristige dynamische Entwicklungen.
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="slide-body">
+							<div class="header">
 								<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
 								<hr data-id="h-line"/>
 								<h3>Einschränkungen von Klassischem AnEn</h3>
-						</div>
-						
-						<div class="card-layout">
-							<div class="card fragment">
-								<h4>Lineare Ähnlichkeit</h4>
-								<p class="text-xs">
-									Die Ähnlichkeit basiert auf einer starren, linearen Gewichtung der Features.
-									Komplexe, nicht-lineare Zusammenhänge werden nicht berücksichtigt.
-								</p>
 							</div>
 
-							<div class="card fragment">
-								<h4>Curse of Dimensionality</h4>
-								<p class="text-xs">
-									Die Optimierung der Gewichte durch Brute-Force skaliert exponentiell mit der Anzahl der Features .
-									$\mathcal{O}(s^F)$
-								</p>
+							<div class="content">
+								<div class="r-hstack">
+								<div class="r-stack">
+									<img src="images/AnEn_Architecture_Error.png" alt="AnEn Architecture no gradients">
+								</div>
+								<div class="card">
+									<h4>Nicht-Differenzierbarkeit</h4>
+									<p class="text-xs">
+										Der Kern des AnEn – die Auswahl der besten Analoga – ist nicht differenzierbar.
+										<strong class="text-red">Verhindert</strong>
+										somit
+										<strong class="text-red">Backpropagation</strong>
+										und folglich die direkte Integration moderner Deep-Learning-Architekturen.
+									</p>
+								</div>
+							</div>
 							</div>
 
-							<div class="card fragment">
-								<h4>Independent Search</h4>
-								<p class="text-xs">
-									Für jeden Standort ein eigenes unabhängig optimiertes Modell, mit eigenem Archiv.
-									Ignoriert räumliche informationen.
-								</p>
-							</div>
-
-							<div class="card fragment">
-								<h4>Begrenzter zeitlicher Kontext</h4>
-								<p class="text-xs">
-									Das typische Zeitfenster von $t \pm 1$ ignoriert längerfristige dynamische Entwicklungen.
-								</p>
-							</div>
-						</div>
-					</section>
-
-					<section data-auto-animate>
-						<div class="header">
-							<h2>1. Klassisches Analog Ensemble (AnEn)</h2>
-							<hr data-id="h-line"/>
-							<h3>Einschränkungen von Klassischem AnEn</h3>
-						</div>
-
-						<div class="r-hstack">
-							<div class="r-stack">
-								<img src="images/AnEn_Architecture_Error.png" alt="AnEn Architecture no gradients">
-							</div>
-							<div class="card">
-								<h4>Nicht-Differenzierbarkeit</h4>
-								<p class="text-xs">
-									Der Kern des AnEn – die Auswahl der besten Analoga – ist nicht differenzierbar.
-									<strong class="text-red">Verhindert</strong>
-									somit
-									<strong class="text-red">Backpropagation</strong>
-									und folglich die direkte Integration moderner Deep-Learning-Architekturen.
-								</p>
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
@@ -163,162 +220,248 @@
 					<section data-auto-animate>
 						<h2>2. Grundlegende Konzepte</h2>
 					</section>
-					<section data-auto-animate>
-						<div class="header">
-						   <h2>2. Grundlegende Konzepte</h2>
-						   <hr data-id="h-line">
-						   <h3>Sequence Models</h3>
-						</div>
-
-						<div>
-						   <ul>
-							  <li><strong>RNNs (LSTM/GRU):</strong> Modellieren zeitliche Abhängigkeiten sequenziell
-								 <ul>
-									<li>Problem: Eingeschränkte Parallelisierung, Gradient Decay</span></li>
-								 </ul>
-							  </li>
-							  <li><strong>Transformers:</strong> Globale Kontextmodellierung durch Self-Attention
-								 <ul>
-									<li>Problem: Quadratische Komplexität</li>
-								 </ul>
-							  </li>
-							  <li><strong>Temporal Convolutional Networks (TCNs):</strong>
-								 <ul>
-									<li>Kausale dilated Convolutions für lange Abhängigkeiten</li>
-									<li>Exponentielles Wachstum des rezeptiven Felds mit Tiefe</li>
-									<li>Parallele Verarbeitung möglich (im Gegensatz zu RNNs)</li>
-									<li>WaveNet: Residual/Skip-Connections für tiefe Architekturen</li>
-								 </ul>
-							  </li>
-						   </ul>
-						</div>
-
-						<div class="citation-bar"><h4>Quellen:</h4></div>
-					</section>
 
 					<section data-auto-animate>
-						<div class="header">
-						   <h2>2. Grundlegende Konzepte</h2>
-						   <hr data-id="h-line">
-						   <h3>Siamese Networks</h3>
-						</div>
+						<div class="slide-body">
+							<div class="header">
+							   <h2>2. Grundlegende Konzepte</h2>
+							   <hr data-id="h-line">
+							   <h3>Sequence Models</h3>
+							</div>
 
-						<div>
-						   <ul>
-							  <li><strong>Konzept:</strong> Neuronale Netze mit geteilten Gewichten zur Identifikation ähnlicher Muster</li>
-							  <li><strong>Historie:</strong>
-								 <ul>
-									<li>Baldi & Chauvin (1993): Weight Sharing für Fingerabdruckerkennung</li>
-									<li>Bromley et al. (1993): "Siamese" für Signaturverifikation</li>
-								 </ul>
-							  </li>
-							  <li><strong>Training:</strong>
-								 <ul>
-									<li>Contrastive Loss (Chopra et al., 2005): Minimiert Distanz bei passenden Paaren</li>
-									<li>Triplet Loss (Hoffer & Ailon, 2014): Vergleicht Anchor mit positivem und negativem Beispiel</li>
-								 </ul>
-							  </li>
-							  <li><strong>Anwendung in A2E:</strong>
-								 <ul>
-									<li>Hu et al. (2023): Siamese RNNs für NWP-Vorhersagen<span data-cite="delle_monache_2013"></span></li>
-									<li>Vorhersagen sind "ähnlich", wenn ihre Beobachtungen ähnlich sind</li>
-								 </ul>
-							  </li>
-						   </ul>
-						</div>
+							<div class="content">
+							   <ul>
+								  <li><strong>RNNs (LSTM/GRU):</strong> Modellieren zeitliche Abhängigkeiten sequenziell
+									 <ul>
+										<li>Problem: Eingeschränkte Parallelisierung, Gradient Decay</span></li>
+									 </ul>
+								  </li>
+								  <li><strong>Transformers:</strong> Globale Kontextmodellierung durch Self-Attention
+									 <ul>
+										<li>Problem: Quadratische Komplexität</li>
+									 </ul>
+								  </li>
+								  <li><strong>Temporal Convolutional Networks (TCNs):</strong>
+									 <ul>
+										<li>Kausale dilated Convolutions für lange Abhängigkeiten</li>
+										<li>Exponentielles Wachstum des rezeptiven Felds mit Tiefe</li>
+										<li>Parallele Verarbeitung möglich (im Gegensatz zu RNNs)</li>
+										<li>WaveNet: Residual/Skip-Connections für tiefe Architekturen</li>
+									 </ul>
+								  </li>
+							   </ul>
+							</div>
 
-						<div class="citation-bar"><h4>Quellen:</h4></div>
-					</section>
-
-					<section data-auto-animate>
-						<div class="header">
-						   <h2>2. Grundlegende Konzepte</h2>
-						   <hr data-id="h-line">
-						   <h3>Information Retrieval</h3>
-						</div>
-
-						<div>
-						   <ul>
-							  <li><strong>Definition:</strong> Identifizierung relevanter Items in großen Sammlungen (z.B. Suchmaschinen)</li>
-							  <li><strong>Retrieval-Augmented Neural Networks:</strong>
-								 <ul>
-									<li>Modell formuliert Query (Vektor/Text)</li>
-									<li>Retrieval der Top-k relevanten Items aus Datenbank</li>
-									<li>Output wird auf abgerufenen Content konditioniert</li>
-								 </ul>
-							  </li>
-							  <li><strong>Similarity Metrics:</strong>
-								 <ul>
-									<li>Euclidean Distance: Direkte Distanz im Vektorraum</li>
-									<li>Cosine Similarity: Winkelbasiert, magnitudeninvariant</li>
-								 </ul>
-							  </li>
-							  <li><strong>Attention-Mechanismus:</strong>
-								 <ul>
-									<li>Gewichtete Summe der Values basierend auf Query-Key-Similarity</li>
-									<li>Softmax über Similarity Scores → Fokussierung auf relevante Information</li>
-								 </ul>
-							  </li>
-							  <li><strong>RAF (Tire et al., 2024):</strong> Retrieval Augmented Forecasting für Zeitreihen</li>
-						   </ul>
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate>
-						<div class="header">
-						   <h2>2. Grundlegende Konzepte</h2>
-						   <hr data-id="h-line">
-						   <h3>Proper Scoring Rules</h3>
-						</div>
+						<div class="slide-body">
+							<div class="header">
+							   <h2>2. Grundlegende Konzepte</h2>
+							   <hr data-id="h-line">
+							   <h3>Siamese Networks</h3>
+							</div>
 
-						<div class="r-hstack justify-around items-start">
-						   <div>
-							  <h4>CRPS</h4>
-							  <ul>
-								 <li>Continuous Ranked Probability Score</li>
-								 <li>Integrierte quadratische Differenz zwischen Vorhersage-CDF und Beobachtung</li>
-								 <li>Verallgemeinerung des absoluten Fehlers auf Verteilungen</li>
-								 <li><strong>Problem:</strong> Skalenabhängig – betont Ereignisse mit hoher Unsicherheit</li>
-								 <li>Gute Vorhersage: Kalibriert & scharf</li>
-							  </ul>
-						   </div>
-						   <div>
-							  <h4>SCRPS</h4>
-							  <ul>
-								 <li>Scaled Continuous Ranked Probability Score</li>
-								 <li>Skalierungsinvariant gegenüber Zielvariable</li>
-								 <li>Normalisiert durch erwartete Streuung</li>
-								 <li>Besser für Vergleiche über verschiedene Unsicherheitsniveaus</li>
-								 <li>In A2E als Trainingsziel verwendet</li>
-							  </ul>
-						   </div>
+							<div class="content">
+							   <ul>
+								  <li><strong>Konzept:</strong> Neuronale Netze mit geteilten Gewichten zur Identifikation ähnlicher Muster</li>
+								  <li><strong>Historie:</strong>
+									 <ul>
+										<li>Baldi & Chauvin (1993): Weight Sharing für Fingerabdruckerkennung</li>
+										<li>Bromley et al. (1993): "Siamese" für Signaturverifikation</li>
+									 </ul>
+								  </li>
+								  <li><strong>Training:</strong>
+									 <ul>
+										<li>Contrastive Loss (Chopra et al., 2005): Minimiert Distanz bei passenden Paaren</li>
+										<li>Triplet Loss (Hoffer & Ailon, 2014): Vergleicht Anchor mit positivem und negativem Beispiel</li>
+									 </ul>
+								  </li>
+								  <li><strong>Anwendung in A2E:</strong>
+									 <ul>
+										<li>Hu et al. (2023): Siamese RNNs für NWP-Vorhersagen<span data-cite="delle_monache_2013"></span></li>
+										<li>Vorhersagen sind "ähnlich", wenn ihre Beobachtungen ähnlich sind</li>
+									 </ul>
+								  </li>
+							   </ul>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="slide-body">
+							<div class="header">
+							   <h2>2. Grundlegende Konzepte</h2>
+							   <hr data-id="h-line">
+							   <h3>Information Retrieval</h3>
+							</div>
+
+							<div class="content">
+							   <ul>
+								  <li><strong>Definition:</strong> Identifizierung relevanter Items in großen Sammlungen (z.B. Suchmaschinen)</li>
+								  <li><strong>Retrieval-Augmented Neural Networks:</strong>
+									 <ul>
+										<li>Modell formuliert Query (Vektor/Text)</li>
+										<li>Retrieval der Top-k relevanten Items aus Datenbank</li>
+										<li>Output wird auf abgerufenen Content konditioniert</li>
+									 </ul>
+								  </li>
+								  <li><strong>Similarity Metrics:</strong>
+									 <ul>
+										<li>Euclidean Distance: Direkte Distanz im Vektorraum</li>
+										<li>Cosine Similarity: Winkelbasiert, magnitudeninvariant</li>
+									 </ul>
+								  </li>
+								  <li><strong>Attention-Mechanismus:</strong>
+									 <ul>
+										<li>Gewichtete Summe der Values basierend auf Query-Key-Similarity</li>
+										<li>Softmax über Similarity Scores → Fokussierung auf relevante Information</li>
+									 </ul>
+								  </li>
+								  <li><strong>RAF (Tire et al., 2024):</strong> Retrieval Augmented Forecasting für Zeitreihen</li>
+							   </ul>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<div class="slide-body">
+							<div class="header">
+							   <h2>2. Grundlegende Konzepte</h2>
+							   <hr data-id="h-line">
+							   <h3>Proper Scoring Rules</h3>
+							</div>
+
+							<div class="content">
+								<div class="r-hstack justify-around items-start">
+								   <div>
+									  <h4>CRPS</h4>
+									  <ul>
+										 <li>Continuous Ranked Probability Score</li>
+										 <li>Integrierte quadratische Differenz zwischen Vorhersage-CDF und Beobachtung</li>
+										 <li>Verallgemeinerung des absoluten Fehlers auf Verteilungen</li>
+										 <li><strong>Problem:</strong> Skalenabhängig – betont Ereignisse mit hoher Unsicherheit</li>
+										 <li>Gute Vorhersage: Kalibriert & scharf</li>
+									  </ul>
+								   </div>
+								   <div>
+									  <h4>SCRPS</h4>
+									  <ul>
+										 <li>Scaled Continuous Ranked Probability Score</li>
+										 <li>Skalierungsinvariant gegenüber Zielvariable</li>
+										 <li>Normalisiert durch erwartete Streuung</li>
+										 <li>Besser für Vergleiche über verschiedene Unsicherheitsniveaus</li>
+										 <li>In A2E als Trainingsziel verwendet</li>
+									  </ul>
+								   </div>
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate data-visibility="hidden">
-						<div class="header">
-							<h2>Grundlegende Konzepte</h2>
-							<hr data-id="h-line"/>
-							<h3>Deep Analog (Hu et al. 2023)</h3>
-						</div>
+						<div class="slide-body">
+							<div class="header">
+								<h2>Grundlegende Konzepte</h2>
+								<hr data-id="h-line"/>
+								<h3>Deep Analog (Hu et al. 2023)</h3>
+							</div>
 
-						<div class="r-hstack">
-							<ul>
-								<li>Triplet (Siamese) Network</li>
-								<ul>
-									<li>Drei identische Encoder (mit identischen gewichten)</li>
-									<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
-									<li>Training eines Embeddingraumes</li>
-								</ul>
-								<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
-								<ul class="fragment" data-fragment-index="1">
-									<li>Prognosen sind ähnlich, wenn deren Beobachtungen ähnlich sind</li>
-									<li>Implizite Definition von Ähnlichkeit</li>
-									<li>Keine klare Definition von Negativ Beispielen</li>
-								</ul>
-							</ul>
+							<div class="content">
+								<div class="r-hstack">
+									<ul>
+										<li>Triplet (Siamese) Network</li>
+										<ul>
+											<li>Drei identische Encoder (mit identischen gewichten)</li>
+											<li>Anker + Positiv Beispiel + Negativ Beispiel</li>
+											<li>Training eines Embeddingraumes</li>
+										</ul>
+										<li class="fragment" data-fragment-index="1">"Reverse Analog" Auswahl der Beispiele</li>
+										<ul class="fragment" data-fragment-index="1">
+											<li>Prognosen sind ähnlich, wenn deren Beobachtungen ähnlich sind</li>
+											<li>Implizite Definition von Ähnlichkeit</li>
+											<li>Keine klare Definition von Negativ Beispielen</li>
+										</ul>
+									</ul>
 
-							<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
+									<img class="fragment" data-fragment-index="1" height="250px" src="images/ReverseAnalogSelection.webp" alt="ReverseAnalogSelection">
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
 						</div>
 					</section>
 				</section>
@@ -330,150 +473,270 @@
 					</section>
 
 					<section data-auto-animate>
-						<div class="header">
-							<h2>3. Attentive Analog Ensemble (A2E)</h2>
-							<hr data-id="h-line">
-						</div>
-						<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
-							<div>
-								<h3 class="text-base">AnEn</h3>
-								<div>
-									<img width="500" src="images/AnEn_Architecture.png" alt="AnEn">
+						<div class="slide-body">
+							<div class="header">
+								<h2>3. Attentive Analog Ensemble (A2E)</h2>
+								<hr data-id="h-line">
+							</div>
+
+							<div class="content">
+								<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
+									<div>
+										<h3 class="text-base">AnEn</h3>
+										<div>
+											<img width="500" src="images/AnEn_Architecture.png" alt="AnEn">
+										</div>
+									</div>
+
+									<div>
+										<h3 class="text-base">Attention</h3>
+										<div>
+											<img width="250" src="images/Attention.png" alt="Attention Mechanismus">
+										</div>
+									</div>
 								</div>
 							</div>
 
-							<div>
-								<h3 class="text-base">Attention</h3>
-								<div>
-									<img width="250" src="images/Attention.png" alt="Attention Mechanismus">
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
 								</div>
 							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate data-visibility="uncounted">
-						<div class="header">
-							<h2>3. Attentive Analog Ensemble (A2E)</h2>
-							<hr data-id="h-line">
-						</div>
-						<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
-							<div>
-								<h3 class="text-base">AnEn</h3>
-								<div>
-									<img width="500" src="images/AnEn_Architecture.png" alt="AnEn">
+						<div class="slide-body">
+							<div class="header">
+								<h2>3. Attentive Analog Ensemble (A2E)</h2>
+								<hr data-id="h-line">
+							</div>
+
+							<div class="content">
+								<div class="r-hstack" style="align-items: flex-start; gap: 30px;">
+									<div>
+										<h3 class="text-base">AnEn</h3>
+										<div>
+											<img width="500" src="images/AnEn_Architecture.png" alt="AnEn">
+										</div>
+									</div>
+
+									<div>
+										<h3 class="text-base">Attention</h3>
+										<div>
+											<img width="250" src="images/Attention.png" alt="Attention Mechanismus">
+										</div>
+									</div>
+
+									<div>
+										<h3 class="text-base">A2E</h3>
+										<div>
+											<img width="500" src="images/A2E_training_topk.png" alt="A2E" data-id="A2E-Architecture">
+										</div>
+									</div>
 								</div>
 							</div>
 
-							<div>
-								<h3 class="text-base">Attention</h3>
-								<div>
-									<img width="250" src="images/Attention.png" alt="Attention Mechanismus">
-								</div>
-							</div>
-
-							<div>
-								<h3 class="text-base">A2E</h3>
-								<div>
-									<img width="500" src="images/A2E_training_topk.png" alt="A2E" data-id="A2E-Architecture">
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
 								</div>
 							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate>
-						<div class="header">
-							<h2>3. Attentive Analog Ensemble (A2E)</h2>
-							<hr data-id="h-line">
-							<h3>A2E-Architektur</h3>
-						</div>
-						<div class="r-hstack">
-							<div class="r-stack" style="width: 40%;">
-								<ul class="fragment fade-out" data-fragment-index="0">
-									<li>Lorem</li>
-									<li>Ipsum</li>
-								</ul>
-								<ul class="fragment fade-in-then-out" data-fragment-index="0">
-									<li>Attention as Soft Retrieval</li>
-									<li>Cosine Similarity für direktionale ähnlichkeit (Richtung im Latenten-Raum).</li>
-									<li>Gewichte ($W_k$) propagieren die Gradienten.</li>
-									<li>Ensemble Generation and Training Objective</li>
-								</ul>
-								<ul class="fragment" data-fragment-index="1">
-									<li>Capturing Context with Embedding Networks</li>
-								</ul>
+						<div class="slide-body">
+							<div class="header">
+								<h2>3. Attentive Analog Ensemble (A2E)</h2>
+								<hr data-id="h-line">
+								<h3>A2E-Architektur</h3>
 							</div>
-							<div class="r-stack" style="border-radius: 20px; justify-self: flex-end; overflow: hidden; height: 600px; width: 60%;">
-								<img width="500" src="images/A2E_training_topk.png" alt="A2E-Architecture" data-id="A2E-Architecture" id="A2E-Architecture">
-								<img width="500" src="images/A2E_training_topk.png" alt="A2E-Architecture" data-id="A2E-Architecture-Zoom" id="A2E-Architecture-Zoom">
+
+							<div class="content">
+								<div class="r-hstack">
+									<div class="r-stack" style="width: 40%;">
+										<ul class="fragment fade-out" data-fragment-index="0">
+											<li>Lorem</li>
+											<li>Ipsum</li>
+										</ul>
+										<ul class="fragment fade-in-then-out" data-fragment-index="0">
+											<li>Attention as Soft Retrieval</li>
+											<li>Cosine Similarity für direktionale ähnlichkeit (Richtung im Latenten-Raum).</li>
+											<li>Gewichte ($W_k$) propagieren die Gradienten.</li>
+											<li>Ensemble Generation and Training Objective</li>
+										</ul>
+										<ul class="fragment" data-fragment-index="1">
+											<li>Capturing Context with Embedding Networks</li>
+										</ul>
+									</div>
+									<div class="r-stack" style="border-radius: 20px; justify-self: flex-end; overflow: hidden; height: 600px; width: 60%;">
+										<img width="500" src="images/A2E_training_topk.png" alt="A2E-Architecture" data-id="A2E-Architecture" id="A2E-Architecture">
+										<img width="500" src="images/A2E_training_topk.png" alt="A2E-Architecture" data-id="A2E-Architecture-Zoom" id="A2E-Architecture-Zoom">
+									</div>
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate>
-						<div class="header">
-							<h2>3. Attentive Analog Ensemble (A2E)</h2>
-							<hr data-id="h-line">
-							<h3>Embedding Network – WaveNet (Oord et al. 2016)</h3>
-						</div>
-						<div class="r-hstack">
-							<div style="width: 40%;">
-								<ul>
-									<li>Dilated Convolution mit Gated Activation Units</li>
-									<li>Effizientes verarbeiten langer Zeitfenstern</li>
-									<li>Residuale- & Skip-Connections erlauben Tiefe-Netze</li>
-								</ul>
+						<div class="slide-body">
+							<div class="header">
+								<h2>3. Attentive Analog Ensemble (A2E)</h2>
+								<hr data-id="h-line">
+								<h3>Embedding Network – WaveNet (Oord et al. 2016)</h3>
 							</div>
-							<div style="border-radius: 20px; overflow: hidden; width: 60%;">
-								<img src="images/A2E_Encoder.PNG" alt="A2E-Encoder" data-id="A2E-Encoder" id="A2E-Encoder">
+
+							<div class="content">
+								<div class="r-hstack">
+									<div style="width: 40%;">
+										<ul>
+											<li>Dilated Convolution mit Gated Activation Units</li>
+											<li>Effizientes verarbeiten langer Zeitfenstern</li>
+											<li>Residuale- & Skip-Connections erlauben Tiefe-Netze</li>
+										</ul>
+									</div>
+									<div style="border-radius: 20px; overflow: hidden; width: 60%;">
+										<img src="images/A2E_Encoder.PNG" alt="A2E-Encoder" data-id="A2E-Encoder" id="A2E-Encoder">
+									</div>
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
 
 					<section data-auto-animate>
-						<div class="header">
-							<h2>3. Attentive Analog Ensemble (A2E)</h2>
-							<hr data-id="h-line">
-							<h3>Dilated Convolution</h3>
-						</div>
-						<div class="r-hstack justify-around">
-							<div>
-								<ul>
-									<li>Lorem</li>
-									<li>Ipsum</li>
-									<li>Dolor</li>
-									<li>Sit</li>
-									<li>Amet</li>
-								</ul>
+						<div class="slide-body">
+							<div class="header">
+								<h2>3. Attentive Analog Ensemble (A2E)</h2>
+								<hr data-id="h-line">
+								<h3>Dilated Convolution</h3>
 							</div>
-							<div>
-								<img width="700" src="images/A2E_DilatedConvolution.png" alt="A2E-DilatedConvolution" id="A2E-DilatedConvolution">
+
+							<div class="content">
+								<div class="r-hstack justify-around">
+									<div>
+										<ul>
+											<li>Lorem</li>
+											<li>Ipsum</li>
+											<li>Dolor</li>
+											<li>Sit</li>
+											<li>Amet</li>
+										</ul>
+									</div>
+									<div>
+										<img width="700" src="images/A2E_DilatedConvolution.png" alt="A2E-DilatedConvolution" id="A2E-DilatedConvolution">
+									</div>
+								</div>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</section>
 
 					<section id="wind-slide" data-auto-animate>
-						<div class="header">
-							<h2>3. Attentive Analog Ensemble (A2E)</h2>
-							<hr data-id="h-line">
-							<h3>Windgeschwindigkeiten über Deutschland</h3>
-						</div>
-						<div class="r-hstack justify-around">
-							<div>
-								<ul>
-									<li>Lorem</li>
-									<li>Ipsum</li>
-								</ul>
+						<div class="slide-body">
+							<div class="header">
+								<h2>3. Attentive Analog Ensemble (A2E)</h2>
+								<hr data-id="h-line">
+								<h3>Windgeschwindigkeiten über Deutschland</h3>
 							</div>
 
-							<div class="r-hstack" style="height: 700px; width: 400px; margin-top: -30px">
-								<div class="r-vstack">
-									<div id="my-wind-info" class="text-xs"></div>
-									<div id="wind-visualization" style="margin-top: -30px;"></div>
+							<div class="content">
+								<div class="r-hstack justify-around">
+									<div>
+										<ul>
+											<li>Lorem</li>
+											<li>Ipsum</li>
+										</ul>
+									</div>
+
+									<div class="r-hstack" style="height: 700px; width: 400px; margin-top: -30px">
+										<div class="r-vstack">
+											<div id="my-wind-info" class="text-xs"></div>
+											<div id="wind-visualization" style="margin-top: -30px;"></div>
+										</div>
+										<div class="my-custom-controls r-vstack">
+											<button id="my-play-btn"><i class="fas fa-play-circle"></i></button>
+											<button id="my-pause-btn"><i class="fas fa-pause-circle"></i></button>
+											<button id="my-reset-btn"><i class="fas fa-backward-fast"></i></button>
+										</div>
+									</div>
 								</div>
-								<div class="my-custom-controls r-vstack">
-									<button id="my-play-btn"><i class="fas fa-play-circle"></i></button>
-									<button id="my-pause-btn"><i class="fas fa-pause-circle"></i></button>
-									<button id="my-reset-btn"><i class="fas fa-backward-fast"></i></button>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -487,8 +750,32 @@
 					</section>
 
 					<section data-auto-animate>
-						<h2 class="header">4. Ergebnisse</h2>
-						<p>Lorem Ipsum</p>
+						<div class="slide-body">
+							<div class="header">
+								<h2>4. Ergebnisse</h2>
+								<hr data-id="h-line">
+								<h3>Lorem Ipsum</h3>
+							</div>
+
+							<div class="content">
+								<p>Lorem Ipsum</p>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
+						</div>
 					</section>
 				</section>
 
@@ -497,8 +784,32 @@
 					<section data-auto-animate><h2>5. Fazit</h2></section>
 
 					<section data-auto-animate>
-						<h2 class="header">5. Fazit</h2>
-						<p>Lorem Ipsum</p>
+						<div class="slide-body">
+							<div class="header">
+								<h2>5. Fazit</h2>
+								<hr data-id="h-line">
+								<h3>Lorem Ipsum</h3>
+							</div>
+
+							<div class="content">
+								<p>Lorem Ipsum</p>
+							</div>
+
+							<div class="footer">
+								<div class="slide-sources"></div>
+								<div class="meta-data" data-id="meta-data">
+									<div class="left">
+										<span>Phillip Schlicht | Attentive Analog Ensemble (A2E)</span>
+									</div>
+									<div class="center">
+										<span data-date="de"></span>
+									</div>
+									<div class="right">
+										<span data-slide-number></span>
+									</div>
+								</div>
+							</div>
+						</div>
 					</section>
 				</section>
 
@@ -556,7 +867,7 @@
   				// be preserved when the presentation is scaled to fit different
 	  			// resolutions. Can be specified using percentage units.
 				"width": 1280,
-  				"height": 720,
+  				"height": 800,
 
 				// Control vertical centering of slides
 				"center": true,
@@ -609,12 +920,10 @@
 				},
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				"plugins": [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, DatePlugin, CustomSlideNumber, RevealBibtexCite ],
+				"plugins": [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, DatePlugin, RevealCustomSlideNumber, RevealBibtexCite ],
 
 				// CustomSlideNumber Konfiguration
-				"customSlideNumber": true,
 				"customSlideNumberFormat": 'c/t', // 'h.v', 'h/v', 'c', oder 'c/t'
-				"customSlideNumberSelector": '.custom-slide-number', // optional, Standard ist '.custom-slide-number'
 
 				// Citation with bibtex
 				bibtexCite: {
