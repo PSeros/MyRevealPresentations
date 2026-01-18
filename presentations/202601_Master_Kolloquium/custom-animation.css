@@ -19,20 +19,6 @@ section:has(.current-fragment[data-fragment-index="1"]) #A2E-Architecture-Zoom {
     transform: scale(2.2) translate(15%, -30%);
 }
 
-/* Embedding Network */
-#A2E-Encoder {
-    transition: all 0.75s ease-in-out;
-    transform: scale(1) translate(0, 0);
-}
-
-section:has(.current-fragment[data-fragment-index="0"]) #A2E-Encoder {
-    transform: scale(1.5) translate(20%, 0%);
-}
-
-section:has(.current-fragment[data-fragment-index="1"]) #A2E-Encoder {
-    transform: scale(1.5) translate(-20%, 10%);
-}
-
 /* Wind-Visualization */
 .my-custom-controls button{
 }
