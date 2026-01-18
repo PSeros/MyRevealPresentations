@@ -208,8 +208,8 @@ const RevealBibtexCite = (() => {
     return sourcesEl;
   }
 
-  function fillCitationBarInSlide(slide, usedKeysInSlide, keyToNumber, keyToEntry, options) {
-    const bar = slide.querySelector(`:scope > ${options.citationBarSelector}, :scope ${options.citationBarSelector}`);
+  function fillSlideSourcesInSlide(slide, usedKeysInSlide, keyToNumber, keyToEntry, options, lang) {
+    const bar = slide.querySelector(`:scope > ${options.slideSourcesSelector}, :scope ${options.slideSourcesSelector}`);
     if (!bar) return;
 
     if (usedKeysInSlide.length === 0) return;
@@ -224,13 +224,30 @@ const RevealBibtexCite = (() => {
 
     const text = parts.join("; ");
 
+    // Heading "Quellen:" / "Sources:" sicherstellen (einmalig) und vor dem <p> platzieren
+    let h4 = bar.querySelector("h4[data-generated='true'][data-role='slide-sources-heading']");
+    if (!h4) {
+      h4 = document.createElement("h4");
+      h4.dataset.generated = "true";
+      h4.dataset.role = "slide-sources-heading";
+    }
+    h4.textContent = t(lang, "slideSourcesHeading");
+
     // Falls schon ein von uns generiertes <p> existiert, aktualisieren statt doppelt anzuhängen
     let p = bar.querySelector("p[data-generated='true']");
     if (!p) {
       p = document.createElement("p");
       p.dataset.generated = "true";
-      bar.appendChild(p); // ANS ENDE des existierenden Inhalts
     }
+
+    // Reihenfolge erzwingen: h4 vor p (beide am Ende des bestehenden Inhalts)
+    if (p.parentNode !== bar) bar.appendChild(p);
+    if (h4.parentNode !== bar) {
+      bar.insertBefore(h4, p);
+    } else if (p && h4.nextSibling !== p) {
+      bar.insertBefore(h4, p);
+    }
+
     p.textContent = text;
   }
 
@@ -290,11 +307,13 @@ const RevealBibtexCite = (() => {
   const I18N = {
     de: {
       sourcesTitle: "Literaturverzeichnis",
+      slideSourcesHeading: "Quellen:",
       lastAccessed: "Letzter Zugriff am",
       missingUrlDate: "FEHLT: urldate"
     },
     en: {
-      sourcesTitle: "Sources",
+      sourcesTitle: "Bibliography",
+      slideSourcesHeading: "Sources:",
       lastAccessed: "Last accessed",
       missingUrlDate: "MISSING: urldate"
     }
@@ -314,7 +333,7 @@ const RevealBibtexCite = (() => {
       citeSelector: "[data-cite]",
 
       // Wo die per-Slide Kurzquellen landen (DU setzt den Container ins Slide-Markup!)
-      citationBarSelector: ".citation-bar",
+      slideSourcesSelector: ".slide-sources",
 
       // Superscripts
       supClass: "cite-sup",
@@ -387,7 +406,7 @@ const RevealBibtexCite = (() => {
             replaceCiteNode(node, keys, keyToNumber, options);
           }
 
-          fillCitationBarInSlide(slide, used, keyToNumber, keyToEntry, options);
+          fillSlideSourcesInSlide(slide, used, keyToNumber, keyToEntry, options, lang);
         }
 
         // 3) Sources container befüllen (dedupliziert global)
