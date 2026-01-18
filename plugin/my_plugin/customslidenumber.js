@@ -1,118 +1,89 @@
-/**
- * Custom Slide Number Plugin for Reveal.js
- * 
- * Renders the slide number in a custom element instead of the default position.
- * Supports all Reveal.js slide number features including:
- * - data-visibility="uncounted"
- * - Vertical slides
- * - All format options (h.v, h/v, c, c/t)
- */
-const CustomSlideNumber = () => {
-  let deck;
-  let element;
-  let config;
+// plugin/custom-slide-number/custom-slide-number.js
+const RevealCustomSlideNumber = (() => {
+  const TARGET = "[data-slide-number]";
 
-  return {
-    id: 'customSlideNumber',
+  function isLeafSlide(sectionEl) {
+    return !!sectionEl && sectionEl.tagName === "SECTION" && !sectionEl.querySelector(":scope > section");
+  }
 
-    init: (reveal) => {
-      deck = reveal;
-      config = deck.getConfig();
+  function hideDefaultSlideNumberUi() {
+    const style = document.createElement("style");
+    style.dataset.customSlideNumber = "true";
+    style.textContent = `.reveal .slide-number { display: none !important; }`;
+    document.head.appendChild(style);
+  }
 
-      // Find or create the custom element
-      element = document.querySelector(config.customSlideNumberSelector || '.custom-slide-number');
-      
-      if (!element) {
-        console.warn('CustomSlideNumber: Target element not found. Please add an element with the selector:', config.customSlideNumberSelector || '.custom-slide-number');
-        return;
-      }
+  function plugin() {
+    let Reveal;
 
-      // Disable the default slide number
-      deck.configure({ slideNumber: false });
-
-      // Update on slide changes
-      deck.on('slidechanged', update);
-      deck.on('ready', update);
-    },
-
-    /**
-     * Updates the custom slide number element
-     */
-    update() {
-      if (!element || !config.customSlideNumber) return;
-
-      const slideNumber = getSlideNumber();
-      element.innerHTML = slideNumber;
+    function getLeafSlidesInDomOrder() {
+      const slidesEl = Reveal.getSlidesElement();
+      return Array.from(
+        slidesEl.querySelectorAll(":scope > section, :scope > section > section")
+      ).filter(isLeafSlide);
     }
-  };
 
-  /**
-   * Returns the HTML string for the current slide number
-   * (mirrors the logic from Reveal's SlideNumber controller)
-   */
-  function getSlideNumber(slide = deck.getCurrentSlide()) {
-    if (!config.customSlideNumber) return '';
+    // Normal (nicht-PDF): pro Slide Reveal-HTML verwenden
+    function fillAllLive() {
+      const sn = Reveal.slideNumber;
+      if (!sn || typeof sn.getSlideNumber !== "function") return;
 
-    let value;
-    let format = config.customSlideNumberFormat || 'h.v';
+      for (const slide of getLeafSlidesInDomOrder()) {
+        const targets = slide.querySelectorAll(TARGET);
+        if (!targets.length) continue;
 
-    // Custom function format
-    if (typeof config.customSlideNumber === 'function') {
-      value = config.customSlideNumber(slide);
-    } else {
-      // If there are ONLY vertical slides, use flattened format
-      if (!/c/.test(format) && deck.getHorizontalSlides().length === 1) {
-        format = 'c';
+        const html = sn.getSlideNumber(slide); // <a><span...></a>
+        for (const el of targets) el.innerHTML = html;
       }
+    }
 
-      // Offset by 1 for 1-indexed numbering (respects uncounted slides)
-      let horizontalOffset = slide && slide.dataset.visibility === 'uncounted' ? 0 : 1;
-      value = [];
+    // PDF/Print: pro pdf-page die korrekte Nummer aus .slide-number-pdf übernehmen
+    function fillAllPdf() {
+      const pages = Array.from(document.querySelectorAll(".pdf-page"));
+      if (!pages.length) return;
 
-      switch (format) {
-        case 'c':
-          value.push(deck.getSlidePastCount(slide) + horizontalOffset);
-          break;
-        case 'c/t':
-          value.push(deck.getSlidePastCount(slide) + horizontalOffset, '/', deck.getTotalSlides());
-          break;
-        default:
-          let indices = deck.getIndices(slide);
-          value.push(indices.h + horizontalOffset);
-          let sep = format === 'h/v' ? '/' : '.';
-          if (deck.isVerticalSlide(slide)) {
-            value.push(sep, indices.v + 1);
+      for (const page of pages) {
+        const pdfNumberEl = page.querySelector(".slide-number-pdf");
+        if (!pdfNumberEl) continue;
+
+        // Das ist die "echte" Print-Nummer (inkl. Fragment-Suffix wie 5.2)
+        const txt = (pdfNumberEl.textContent || "").trim();
+        if (!txt) continue;
+
+        // In der pdf-page steckt (mindestens) ein Slide-<section>
+        const slide = page.querySelector("section");
+        if (!slide) continue;
+
+        const targets = slide.querySelectorAll(TARGET);
+        for (const el of targets) {
+          // Im PDF sind Links egal → Text reicht und ist stabil
+          el.textContent = txt;
+        }
+      }
+    }
+
+    return {
+      id: "customSlideNumber",
+      init: function (reveal) {
+        Reveal = reveal;
+
+        // SlideNumber-Controller muss aktiv bleiben, sonst gibt's kein Reveal.slideNumber
+        hideDefaultSlideNumberUi();
+
+        Reveal.on("ready", () => {
+          fillAllLive();
+
+          // Falls man direkt im Print-View startet:
+          if (document.documentElement.classList.contains("print-pdf")) {
+            fillAllPdf();
           }
+        });
+
+        // DAS ist der entscheidende Hook für den PDF-Export
+        Reveal.on("pdf-ready", fillAllPdf);
       }
-    }
-
-    let url = '#' + deck.location.getHash(slide);
-    return formatNumber(value[0], value[1], value[2], url);
+    };
   }
 
-  /**
-   * Formats the slide number as HTML
-   */
-  function formatNumber(a, delimiter, b, url = '#' + deck.location.getHash()) {
-    if (typeof b === 'number' && !isNaN(b)) {
-      return `<div href="${url}">
-                <span class="slide-number-a">${a}</span>
-                <span class="slide-number-delimiter">${delimiter}</span>
-                <span class="slide-number-b">${b}</span>
-              </div>`;
-    } else {
-      return `<div href="${url}">
-                <span class="slide-number-a">${a}</span>
-              </div>`;
-    }
-  }
-
-  function update() {
-    if (!element || !config.customSlideNumber) return;
-
-    const slideNumber = getSlideNumber();
-    element.innerHTML = slideNumber;
-  }
-};
-
-window.CustomSlideNumber = CustomSlideNumber;
+  return plugin();
+})();
