@@ -105,6 +105,11 @@ const RevealBibtexCite = (() => {
     return `https://doi.org/${d}`;
   }
 
+  function isStack(sectionEl) {
+    // Parent-Stack: hat direkte section-Kinder
+    return !!sectionEl.querySelector(":scope > section");
+  }
+
   function formatAuthors(authorField) {
     if (!authorField) return "";
     const parts = authorField.split(/\s+and\s+/i).map(s => s.trim()).filter(Boolean);
@@ -204,7 +209,7 @@ const RevealBibtexCite = (() => {
   }
 
   function fillCitationBarInSlide(slide, usedKeysInSlide, keyToNumber, keyToEntry, options) {
-    const bar = slide.querySelector(options.citationBarSelector);
+    const bar = slide.querySelector(`:scope > ${options.citationBarSelector}, :scope ${options.citationBarSelector}`);
     if (!bar) return;
 
     if (usedKeysInSlide.length === 0) return;
@@ -256,9 +261,18 @@ const RevealBibtexCite = (() => {
     }
   }
 
+  function isHiddenSlide(slideEl) {
+    return (
+      slideEl.dataset.visibility === "hidden" ||
+      !!slideEl.closest("section[data-visibility='hidden']")
+    );
+  }
+
   function collectSlidesInDomOrder(Reveal) {
-    // Reveal.getSlides() liefert alle Slides in Reihenfolge
-    return Reveal.getSlides();
+    const slidesEl = Reveal.getSlidesElement();
+    return Array.from(
+      slidesEl.querySelectorAll(":scope > section, :scope > section > section")
+    );
   }
 
   async function loadBibFile(url) {
@@ -336,7 +350,8 @@ const RevealBibtexCite = (() => {
         const keyToEntry = bibMap;
         let counter = 1;
 
-        const slides = collectSlidesInDomOrder(RevealInstance);
+        const slidesAll = collectSlidesInDomOrder(RevealInstance);
+        const slides = slidesAll.filter(s => !isStack(s) && !isHiddenSlide(s));
 
         // DOM-order traversal pro Slide, damit Nummerierung "gefühlt natürlich" ist
         for (const slide of slides) {
