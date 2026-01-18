@@ -80,12 +80,11 @@ html * {
   align-content: center;
 }
 
-@media print {
-  .reveal .slides section,
-  .reveal .slides section > section {
-    height: auto;
-  }
+html.print-pdf .reveal .slides section,
+html.print-pdf .reveal .slides section > section {
+  height: auto !important;
 }
+
 /*********************************************
  * HEADERS
  *********************************************/

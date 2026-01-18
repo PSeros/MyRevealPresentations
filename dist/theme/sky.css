@@ -87,12 +87,11 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   align-content: center;
 }
 
-@media print {
-  .reveal .slides section,
-  .reveal .slides section > section {
-    height: auto;
-  }
+html.print-pdf .reveal .slides section,
+html.print-pdf .reveal .slides section > section {
+  height: auto !important;
 }
+
 /*********************************************
  * HEADERS
  *********************************************/

@@ -2,6 +2,18 @@
  * Layout helpers.
  */
 
+// This is my custom stuff
+.reveal .slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.reveal .slide-body .content {
+  align-content: center;
+}
+
 // Stretch an element vertically based on available space
 .reveal .stretch,
 .reveal .r-stretch {
